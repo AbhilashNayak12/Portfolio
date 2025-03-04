@@ -1,16 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=popins:wght@300;400;500;600;700;900&display=swap');
-*{
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap');
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins',sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
-a{
+a {
     color: aliceblue;
     text-decoration: none;
 }
-.navbar{
+
+.navbar {
     position: fixed;
     left: 0;
     top: 0;
@@ -25,112 +27,123 @@ a{
     animation: show-content 1.5s linear forwards;
     animation-delay: 1.2s;
 }
-@keyframes show-content{
-    100%{
+
+@keyframes show-content {
+    100% {
         visibility: visible;
         opacity: 1;
     }
 }
-.navbar .logo{
+
+.navbar .logo {
     font-size: 30px;
-    font-weight: 70;
+    font-weight: 700;
 }
-.navbar ul{
+
+.navbar ul {
     display: flex;
 }
-.navbar ul li{
+
+.navbar ul li {
     list-style: none;
     margin: 35px;
 }
-.navbar ul li a{
+
+.navbar ul li a {
     font-size: 20px;
     font-weight: 500;
-    transition: .5s;
+    transition: 0.5s;
 }
+
 .navbar ul li:hover a,
-.navbar ul li.active a{
+.navbar ul li.active a {
     color: greenyellow;
 }
-.home{
+
+.home {
     display: flex;
     align-items: center;
     gap: 50px;
     height: 100vh;
     padding: 60px 9% 0;
-    color: antiquewhite;
+    color: lavender;
     visibility: hidden;
     opacity: 0;
     animation: show-content 1.5s linear forwards;
     animation-delay: 1.2s;
 }
-.home-info h1{
+
+.home-info h1 {
     font-size: 55px;
 }
-.home-info h2{
-    display: inline block;
+
+.home-info h2 {
     font-size: 32px;
-    margin: -10px;
-}
-.home-info h2 span{
+    margin: 0;
     position: relative;
-    display: inline-block;
-    color: transparent;
-    -webkit-text-stroke: .7px greenyellow;
-    animation: display-text 16s linear infinite;
-    animation-delay: calc(-4s * var(--i));
-}
-@keyframes display-text{
-    25%,100%{
-        display: none;
-    }
-}
-.home-info h2 span::before{
-    content:attr(data-text);
-    position: absolute;
-    width: 0;
-    border-right: 2px solid greenyellow;
-    color: greenyellow;
-    white-space: nowrap;
     overflow: hidden;
-    animation: fill-text 4s linear infinite;
+    height: 40px; /* Adjusted to fit text properly */
 }
-@keyframes fill-text{
-    10%,100%{
-        width: 0;
-    }
-    70%,90%{
-        width: 100%;
-    }
+
+.home-info h2 span {
+    position: absolute;
+    opacity: 0;
+    color: greenyellow;
+    font-weight: bold;
+    margin-left: 10px; /* Adds space between "I'm a" and the animated text */
+    animation: fadeText 8s infinite;
 }
-.home-info p{
+
+.home-info h2 span:first-child {
+    animation-delay: 0s;
+}
+
+.home-info h2 span:last-child {
+    animation-delay: 4s;
+}
+
+@keyframes fadeText {
+    0% { opacity: 0; transform: translateY(10px); }
+    10% { opacity: 1; transform: translateY(0); }
+    40% { opacity: 1; }
+    50% { opacity: 0; transform: translateY(-10px); }
+    100% { opacity: 0; }
+}
+
+.home-info p {
     font-size: 16px;
     margin: 10px 0 25px;
 }
-.home-info .btn-sci{
+
+.home-info .btn-sci {
     display: flex;
     align-items: center;
 }
-.btn{
+
+.btn {
     display: inline-block;
     padding: 10px 30px;
     background: greenyellow;
     border: 2px solid greenyellow;
     border-radius: 40px;
-    box-shadow: 0 0  10px greenyellow;
+    box-shadow: 0 0 10px greenyellow;
     font-size: 16px;
     color: black;
     font-weight: 600;
-    transform: .5s;
+    transition: 0.5s;
 }
-.btn:hover{
+
+.btn:hover {
     background: transparent;
     color: greenyellow;
     box-shadow: none;
 }
-.home-info .btn-sci .sci{
+
+.home-info .btn-sci .sci {
     margin-left: 20px;
 }
-.home-info .btn-sci .sci a{
+
+.home-info .btn-sci .sci a {
     display: inline-flex;
     padding: 8px;
     border: 2px solid greenyellow;
@@ -138,14 +151,16 @@ a{
     font-size: 20px;
     color: greenyellow;
     margin: 0 8px;
-    transition: .5s;
+    transition: 0.5s;
 }
-.home-info .btn-sci .sci a:hover{
+
+.home-info .btn-sci .sci a:hover {
     background: greenyellow;
     color: black;
     box-shadow: 0 0 10px greenyellow;
 }
-.home-img .img-box{
+
+.home-img .img-box {
     position: relative;
     width: 32vw;
     height: 32vw;
@@ -157,37 +172,42 @@ a{
     align-items: center;
     overflow: hidden;
 }
+
 .home-img .img-box::before,
-.home-img .img-box::after{
+.home-img .img-box::after {
     content: '';
     position: absolute;
     width: 500px;
     height: 500px;
-    background: conic-gradient(transparent,transparent,transparent,greenyellow);
+    background: conic-gradient(transparent, transparent, transparent, greenyellow);
     transform: rotate(0deg);
     animation: rotate-border 10s linear infinite;
 }
-.home-img .img-box::after{
-    animation-delay: -5s;
+
+.home-img .img-box::after {
+    animation-delay: -3s;
 }
-@keyframes rotate-border{
-    100%{
+
+@keyframes rotate-border {
+    100% {
         transform: rotate(360deg);
     }
 }
-.home-img .img-box .img-item{
+
+.home-img .img-box .img-item {
     position: relative;
     width: 100%;
     height: 100%;
     background: black;
     border-radius: 50%;
-    border: .1px solid black;
+    border: 0.1px solid black;
     display: flex;
     justify-content: center;
     z-index: 1;
     overflow: hidden;
 }
-.home-img .img-box .img-item img{
+
+.home-img .img-box .img-item img {
     position: absolute;
     top: -20px;
     display: block;
@@ -195,24 +215,26 @@ a{
     object-fit: cover;
     mix-blend-mode: lighten;
 }
-.bars-animation{
+
+.bars-animation {
     position: absolute;
     width: 100%;
     height: 100%;
     display: flex;
     z-index: -1;
 }
-.bars-animation .bar{
+
+.bars-animation .bar {
     width: 100%;
     height: 100%;
     background: black;
     transform: translateY(-100%);
-    animation: show-bars .5s ease-in-out forwards;
-    animation-delay: calc(.1s * var(--i));
+    animation: show-bars 0.5s ease-in-out forwards;
+    animation-delay: calc(0.1s * var(--i));
 }
+
 @keyframes show-bars {
-    100%{
-        transform:  translateY(0%);
+    100% {
+        transform: translateY(0%);
     }
-    
 }
