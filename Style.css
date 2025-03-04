@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+a {
+    color: aliceblue;
+    text-decoration: none;
+}
+
+.navbar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 25px 9%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    visibility: hidden;
+    opacity: 0;
+    animation: show-content 1.5s linear forwards;
+    animation-delay: 1.2s;
+}
+
+@keyframes show-content {
+    100% {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+.navbar .logo {
+    font-size: 30px;
+    font-weight: 70;
+}
+
+.navbar ul {
+    display: flex;
+}
+
+.navbar ul li {
+    list-style: none;
+    margin: 35px;
+}
+
+.navbar ul li a {
+    font-size: 20px;
+    font-weight: 500;
+    transition: 0.5s;
+}
+
+.navbar ul li:hover a,
+.navbar ul li.active a {
+    color: greenyellow;
+}
+
+.home {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    height: 100vh;
+    padding: 60px 9% 0;
+    color: lavender;
+    visibility: hidden;
+    opacity: 0;
+    animation: show-content 1.5s linear forwards;
+    animation-delay: 1.2s;
+}
+
+.home-info h1 {
+    font-size: 55px;
+}
+
+.home-info h2 {
+    font-size: 32px;
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+    height: 40px; /* Adjusted to fit text properly */
+}
+
+.home-info h2 span {
+    position: absolute;
+    opacity: 0;
+    color: greenyellow;
+    font-weight: bold;
+    margin-left: 10px; /* Adds space between "I'm a" and the text */
+    animation: fadeText 8s infinite;
+}
+
+.home-info h2 span:first-child {
+    animation-delay: 0s;
+}
+
+.home-info h2 span:last-child {
+    animation-delay: 4s;
+}
+
+@keyframes fadeText {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    10% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    40% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.home-info p {
+    font-size: 16px;
+    margin: 10px 0 25px;
+}
+
+.home-info .btn-sci {
+    display: flex;
+    align-items: center;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 30px;
+    background: greenyellow;
+    border: 2px solid greenyellow;
+    border-radius: 40px;
+    box-shadow: 0 0 10px greenyellow;
+    font-size: 16px;
+    color: black;
+    font-weight: 600;
+    transform: 0.5s;
+}
+
+.btn:hover {
+    background: transparent;
+    color: greenyellow;
+    box-shadow: none;
+}
+
+.home-info .btn-sci .sci {
+    margin-left: 20px;
+}
+
+.home-info .btn-sci .sci a {
+    display: inline-flex;
+    padding: 8px;
+    border: 2px solid greenyellow;
+    border-radius: 50%;
+    font-size: 20px;
+    color: greenyellow;
+    margin: 0 8px;
+    transition: 0.5s;
+}
+
+.home-info .btn-sci .sci a:hover {
+    background: greenyellow;
+    color: black;
+    box-shadow: 0 0 10px greenyellow;
+}
+
+.home-img .img-box {
+    position: relative;
+    width: 32vw;
+    height: 32vw;
+    background: black;
+    border-radius: 50%;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.home-img .img-box::before,
+.home-img .img-box::after {
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: conic-gradient(transparent, transparent, transparent, greenyellow);
+    transform: rotate(0deg);
+    animation: rotate-border 10s linear infinite;
+}
+
+.home-img .img-box::after {
+    animation-delay: -5s;
+}
+
+@keyframes rotate-border {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.home-img .img-box .img-item {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: black;
+    border-radius: 50%;
+    border: .1px solid black;
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.home-img .img-box .img-item img {
+    position: absolute;
+    top: -20px;
+    display: block;
+    width: 85%;
+    object-fit: cover;
+    mix-blend-mode: lighten;
+}
+
+.bars-animation {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    z-index: -1;
+}
+
+.bars-animation .bar {
+    width: 100%;
+    height: 100%;
+    background: black;
+    transform: translateY(-100%);
+    animation: show-bars 0.5s ease-in-out forwards;
+    animation-delay: calc(0.1s * var(--i));
+}
+
+@keyframes show-bars {
+    100% {
+        transform: translateY(0%);
+    }
+}
